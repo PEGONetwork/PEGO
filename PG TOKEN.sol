@@ -635,6 +635,6 @@ contract ERC20Token is ERC20, Ownable {
         if(isOpened){
             require(whitelist[from],'close transfer');
         }
-        super._beforeTokenTransfer(from, to, amount);
+        super._afterTokenTransfer(from, to, amount);
     }
 }

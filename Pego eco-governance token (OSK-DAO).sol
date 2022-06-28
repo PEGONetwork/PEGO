@@ -410,8 +410,6 @@ contract OSKDAO is Context, IBEP20, Ownable {
    * - the caller must have a balance of at least `amount`.
    */
   function transfer(address recipient, uint256 amount) external returns (bool) {
-    require(msg.sender != address(0), "BEP20: transfer from the zero address");
-    require(recipient != address(0), "BEP20: transfer to the zero address");
     require(msg.sender != recipient, "transfer the same address");
     require(amount > 0, "amount must greater than zero");
     _transfer(_msgSender(), recipient, amount);
@@ -450,8 +448,6 @@ contract OSKDAO is Context, IBEP20, Ownable {
    * `amount`.
    */
   function transferFrom(address sender, address recipient, uint256 amount) external returns (bool) {
-    require(sender != address(0), "BEP20: transfer from the zero address");
-    require(recipient != address(0), "BEP20: transfer to the zero address");
     require(sender != recipient, "transfer the same address");
     require(amount > 0, "amount must greater than zero");
     _transfer(sender, recipient, amount);
